@@ -1,0 +1,34 @@
+﻿@model IEnumerable<OnlineStore.Models.Worker>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Worker</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>Возраст</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var w in Model)
+            {   
+                <tr>
+                    <td>@w.Name</td>
+                    <td>@w.Surname</td>
+                    <td>@w.Patronymic</td>
+                    <td>@w.Age</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="~/">на главную</a>
+</body>
+</html>
