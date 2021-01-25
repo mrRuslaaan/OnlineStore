@@ -8,17 +8,23 @@
                 <th>Имя</th>
                 <th>Отчество</th>
                 <th>Возраст</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var w in Model)
             {
-                <tr>
-                    <td>@w.Surname</td>
-                    <td>@w.Name</td>
-                    <td>@w.Patronymic</td>
-                    <td>@w.Age</td>
-                </tr>
+            <tr>
+                <td>@w.Surname</td>
+                <td>@w.Name</td>
+                <td>@w.Patronymic</td>
+                <td>@w.Age</td>
+                <td>
+                    <a asp-action="AdditionalInfo" asp-route-id="@w.ID">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
