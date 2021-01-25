@@ -2,15 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using OnlineStore.Data;
-using OnlineStore.Models;
+using System.Threading.Tasks;
 
 namespace OnlineStore.Controllers
 {
-    public class HomeController : Controller
+    public class WorkersController : Controller
     {
         public IActionResult Index()
+        {
+            return View(TestData.Workers);
+        }
+
+        public IActionResult AdditionalInfo(int id)
         {
             return View();
         }
