@@ -1,18 +1,11 @@
 ﻿@model IEnumerable<OnlineStore.Models.Worker>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Worker</title>
-</head>
-<body>
-    <table>
+<body class="container">
+    <table class="table">
         <thead>
             <tr>
-                <th>Имя</th>
                 <th>Фамилия</th>
+                <th>Имя</th>
                 <th>Отчество</th>
                 <th>Возраст</th>
             </tr>
@@ -20,15 +13,15 @@
         <tbody>
             @foreach (var w in Model)
             {   
-                <tr>
-                    <td>@w.Name</td>
-                    <td>@w.Surname</td>
-                    <td>@w.Patronymic</td>
-                    <td>@w.Age</td>
-                </tr>
+            <tr>
+                <td>@w.Surname</td>
+                <td>@w.Name</td>
+                <td>@w.Patronymic</td>
+                <td>@w.Age</td>
+            </tr>
             }
         </tbody>
     </table>
-    <a href="~/">на главную</a>
+    <hr />
+    <a asp-controller="Home" asp-action="Index">На главную</a>
 </body>
-</html>
