@@ -3,9 +3,9 @@
     <li class="dropdown">
         <a href="#">Магазин<i class="fa fa-angle-down"></i></a>
         <ul role="menu" class="sub-menu">
-            <li><a asp-action="Catalog">Товары</a></li>
-            <li><a asp-action="Cart">Корзина</a></li>
-            <li><a asp-action="Login">Вход</a></li>
+            <li><a asp-controller="Home" asp-action="Catalog">Товары</a></li>
+            <li><a asp-controller="Home" asp-action="Cart">Корзина</a></li>
+            <li><a asp-controller="Home" asp-action="Login">Вход</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -15,5 +15,5 @@
             <li><a asp-controller="Home" asp-action="Blog">Блог магазина</a></li>
         </ul>
     </li>
-    <li><a asp-action="ContactUs">Контакты</a></li>
+    <li><a asp-controller="Home" asp-action="ContactUs">Контакты</a></li>
 </ul>

@@ -11,7 +11,6 @@ namespace OnlineStore.Controllers
     public class WorkersController : Controller
     {
         private readonly List<Worker> _Workers;
-
         public WorkersController() => _Workers = TestData.Workers;
         public IActionResult Index()
         {
