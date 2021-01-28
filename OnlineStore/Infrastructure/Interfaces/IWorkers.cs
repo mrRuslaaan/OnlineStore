@@ -13,6 +13,6 @@ namespace OnlineStore.Infrastructure.Interfaces
         bool Delete(int id);
         void Update(Worker worker);
         int Add(Worker worker);
-        
+        public int MaxID();
     }
 }

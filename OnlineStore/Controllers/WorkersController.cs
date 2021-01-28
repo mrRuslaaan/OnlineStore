@@ -71,11 +71,35 @@ namespace OnlineStore.Controllers
         }
         #endregion
 
-        //#region Add
-        //public IActionResult Add()
-        //{
-        //    return View();
-        //}
-        //#endregion
+        #region Add
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(WorkerViewModel model)
+        {
+            if (model is null)
+                return BadRequest();
+
+            var id = _Workers.MaxID() + 1;
+
+            var worker = new Worker
+            {
+                ID = id,
+                Name = model.Name,
+                Surname = model.Surname,
+                Patronymic = model.Patronymic,
+                Age = model.Age,
+            };
+
+            _Workers.Add(worker);
+
+            return RedirectToAction("Index");
+        }
+        #endregion
     }
 }
