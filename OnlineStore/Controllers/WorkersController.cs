@@ -7,6 +7,7 @@ using OnlineStore.Models;
 using OnlineStore.Infrastructure.Interfaces;
 using OnlineStore.Infrastructure.Services;
 using System.Threading.Tasks;
+using OnlineStore.ViewModel;
 
 namespace OnlineStore.Controllers
 {
@@ -26,5 +27,55 @@ namespace OnlineStore.Controllers
             var worker = _Workers.Get(id);
             return View(worker);
         }
+
+        #region Edit
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            if (id < 0)
+                BadRequest();
+
+            var worker = _Workers.Get(id);
+
+            if (worker is null)
+                NotFound();
+
+            return View(new WorkerViewModel
+            {
+                ID = worker.ID,
+                Name = worker.Name,
+                Surname = worker.Surname,
+                Patronymic = worker.Patronymic,
+                Age = worker.Age
+            });  
+        }
+
+        [HttpPost]
+        public IActionResult Edit(WorkerViewModel model)
+        {
+            if (model is null)
+                return BadRequest();
+
+            var worker = new Worker
+            {
+                ID = model.ID,
+                Name = model.Name,
+                Surname = model.Surname,
+                Age = model.Age,
+                Patronymic = model.Patronymic,
+            };
+
+            _Workers.Update(worker);
+           
+            return RedirectToAction("Index");
+        }
+        #endregion
+
+        //#region Add
+        //public IActionResult Add()
+        //{
+        //    return View();
+        //}
+        //#endregion
     }
 }
