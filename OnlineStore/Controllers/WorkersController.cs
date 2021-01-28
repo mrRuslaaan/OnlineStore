@@ -72,7 +72,6 @@ namespace OnlineStore.Controllers
         #endregion
 
         #region Add
-
         [HttpGet]
         public IActionResult Add()
         {
@@ -97,6 +96,15 @@ namespace OnlineStore.Controllers
             };
 
             _Workers.Add(worker);
+
+            return RedirectToAction("Index");
+        }
+        #endregion
+
+        #region
+        public IActionResult Delete(int id)
+        {
+            _Workers.Delete(id);
 
             return RedirectToAction("Index");
         }
