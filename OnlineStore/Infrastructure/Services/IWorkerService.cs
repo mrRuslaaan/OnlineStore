@@ -64,7 +64,8 @@ namespace OnlineStore.Infrastructure.Services
 
             db_item.Name = worker.Name;
             db_item.Surname = worker.Surname;
-            db_item.Patronymic = worker.Patronymic;  
+            db_item.Patronymic = worker.Patronymic;
+            db_item.Age = worker.Age;
         }
     }
 }
