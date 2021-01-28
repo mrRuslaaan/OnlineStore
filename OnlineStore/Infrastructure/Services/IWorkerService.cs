@@ -19,8 +19,14 @@ namespace OnlineStore.Infrastructure.Services
             if (_Workers.Contains(worker))
                 return worker.ID;
 
-            var lastWorkerInEnum = _Workers
-                .LastOrDefault();
+            if (_Workers.Count == 0)
+            {
+                _Workers
+                .Add(worker);
+                return worker.ID = 1;
+            }
+                                     
+            var lastWorkerInEnum = _Workers.LastOrDefault();               
 
             _Workers
                 .Add(worker);
