@@ -14,7 +14,7 @@ namespace OnlineStore.Controllers
         public WorkersController() => _Workers = TestData.Workers;
         public IActionResult Index()
         {
-            return View(TestData.Workers);
+            return View(_Workers);
         }
 
         public IActionResult AdditionalInfo(int id)

@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OnlineStore.Infrastructure.Interfaces;
+using OnlineStore.Infrastructure.Services;
 
 namespace OnlineStore
 {
@@ -15,7 +17,11 @@ namespace OnlineStore
      
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services
+                .AddControllersWithViews()
+                .AddRazorRuntimeCompilation();
+
+            services.AddTransient<IWorkers, IWorkerService>();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
