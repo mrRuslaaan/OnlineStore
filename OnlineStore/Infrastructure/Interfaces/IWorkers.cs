@@ -6,7 +6,7 @@ using OnlineStore.Models;
 
 namespace OnlineStore.Infrastructure.Interfaces
 {
-    interface IWorkers
+    public interface IWorkers
     {
         IEnumerable<Worker> Get();
         Worker Get(int id);

@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using OnlineStore.Data;
 using OnlineStore.Models;
+using OnlineStore.Infrastructure.Interfaces;
+using OnlineStore.Infrastructure.Services;
 using System.Threading.Tasks;
 
 namespace OnlineStore.Controllers
 {
     public class WorkersController : Controller
     {
-        private readonly List<Worker> _Workers;
-        public WorkersController() => _Workers = TestData.Workers;
+        private readonly IWorkers _Workers;
+        public WorkersController(IWorkers Workers) => _Workers = Workers;
+
         public IActionResult Index()
         {
             return View(_Workers);
@@ -19,7 +22,7 @@ namespace OnlineStore.Controllers
 
         public IActionResult AdditionalInfo(int id)
         {
-            var worker = _Workers.FirstOrDefault(w => w.ID == id);
+            var worker = _Workers.Get(id);
             return View(worker);
         }
     }
