@@ -67,5 +67,10 @@ namespace OnlineStore.Infrastructure.Services
             db_item.Patronymic = worker.Patronymic;
             db_item.Age = worker.Age;
         }
+
+        public int MaxID()
+        {
+            return _Workers.Count();
+        }
     }
 }
