@@ -4,12 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using OnlineStore.Infrastructure.Interfaces;
 using OnlineStore.Models;
+using OnlineStore.Data;
 
 namespace OnlineStore.Infrastructure.Services
 {
     public class IWorkerService : IWorkers
     {
-        private IEnumerable<Worker> _Workers = Data.TestData.Workers;
+        private List<Worker> _Workers = TestData.Workers;
         public int Add(Worker worker)
         {
             if (worker is null)
@@ -22,7 +23,6 @@ namespace OnlineStore.Infrastructure.Services
                 .LastOrDefault();
 
             _Workers
-                .ToList()
                 .Add(worker);
 
             return worker.ID = lastWorkerInEnum.ID + 1;
@@ -36,7 +36,6 @@ namespace OnlineStore.Infrastructure.Services
                 return false;
 
             return _Workers
-                .ToList()
                 .Remove(worker);
         }
 

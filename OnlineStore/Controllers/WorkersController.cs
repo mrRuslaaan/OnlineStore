@@ -17,7 +17,8 @@ namespace OnlineStore.Controllers
 
         public IActionResult Index()
         {
-            return View(_Workers);
+            var workers = _Workers.Get();
+            return View(workers);
         }
 
         public IActionResult AdditionalInfo(int id)
