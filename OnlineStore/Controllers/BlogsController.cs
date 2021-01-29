@@ -20,5 +20,19 @@ namespace OnlineStore.Controllers
         {
             return View(_Blogs.Get());
         }
+
+        public IActionResult MainBlog()
+        {
+            var blog = _Blogs.GetMainBlog();
+
+            return View(new BlogViewModel
+            {
+                ID = blog.ID,
+                AuthorID = blog.AuthorID,
+                Head = blog.Head,
+                Body = blog.Body,
+                DateOfPublication = blog.DateOfPublication,
+            });
+        }
     }
 }

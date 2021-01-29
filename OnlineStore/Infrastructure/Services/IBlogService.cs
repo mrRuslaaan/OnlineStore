@@ -28,7 +28,10 @@ namespace OnlineStore.Infrastructure.Services
 
         public IEnumerable<Blog> Get()
         {
-            return _Blogs;
+            var selectedBlogs = from b in _Blogs
+                               where b.AuthorID != 1
+                               select b;
+            return selectedBlogs;
         }
 
         public Blog Get(int id)
@@ -47,6 +50,14 @@ namespace OnlineStore.Infrastructure.Services
         public void Update(Blog blog)
         {
             throw new NotImplementedException();
+        }
+
+        public Blog GetMainBlog()
+        {
+            var selectedBlog = from b in _Blogs
+                               where b.AuthorID == 1
+                               select b;
+            return selectedBlog.LastOrDefault();
         }
     }
 }
