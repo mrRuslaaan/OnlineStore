@@ -101,10 +101,35 @@ namespace OnlineStore.Controllers
         }
         #endregion
 
-        #region
+        #region Delete
+        [HttpGet]
         public IActionResult Delete(int id)
         {
-            _Workers.Delete(id);
+            if (id < 0)
+                BadRequest();
+
+            var worker = _Workers.Get(id);
+
+            if (worker is null)
+                NotFound();
+
+            return View(new WorkerViewModel
+            {
+                ID = worker.ID,
+                Name = worker.Name,
+                Surname = worker.Surname,
+                Patronymic = worker.Patronymic,
+                Age = worker.Age
+            });
+        }
+
+        [HttpPost]
+        public IActionResult Delete(WorkerViewModel model)
+        {
+            if (model is null)
+                return BadRequest();
+
+            _Workers.Delete(model.ID);
 
             return RedirectToAction("Index");
         }
