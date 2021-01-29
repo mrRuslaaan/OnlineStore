@@ -22,6 +22,7 @@ namespace OnlineStore
                 .AddRazorRuntimeCompilation();
 
             services.AddTransient<IWorkers, IWorkerService>();
+            services.AddTransient<IBlog, IBlogService>();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
