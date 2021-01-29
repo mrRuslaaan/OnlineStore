@@ -14,5 +14,10 @@ namespace OnlineStore.Data
             new Worker() { ID = 2, Name = "Федор", Surname ="Достоевский", Patronymic = "Михайлович", Age = 32 },
             new Worker() { ID = 3, Name = "Лев", Surname ="Толстой", Patronymic = "Николаевич", Age = 33 },
         };
+
+        public static List<Blog> Blogs { get; } = new List<Blog>()
+        {
+            new Blog() {ID = 1, AuthorID = 1, Head = "Новая блузка", Body = "ASDasdasdasdasdasdasdasdasdasd", DateOfPublication = DateTime.Now },
+        };
     }
 }
