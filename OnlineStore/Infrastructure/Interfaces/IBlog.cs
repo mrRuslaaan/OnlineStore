@@ -14,5 +14,6 @@ namespace OnlineStore.Infrastructure.Interfaces
         void Update(Blog blog);
         int Add(Blog blog);
         public int MaxID();
+        public Blog GetMainBlog();
     }
 }

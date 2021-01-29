@@ -17,7 +17,8 @@ namespace OnlineStore.Data
 
         public static List<Blog> Blogs { get; } = new List<Blog>()
         {
-            new Blog() {ID = 1, AuthorID = 1, Head = "Новая блузка", Body = "ASDasdasdasdasdasdasdasdasdasd", DateOfPublication = DateTime.Now },
+            new Blog() {ID = 1, AuthorID = 2, Head = "Новая блузка", Body = "ASDasdasdasdasdasdasdasdasdasd", DateOfPublication = DateTime.Now },
+            new Blog() {ID = 2, AuthorID = 1, Head = "Синяя блущка", Body = "ASDasdasdasdasdasdasdasdasdasd", DateOfPublication = DateTime.Now },
         };
     }
 }
