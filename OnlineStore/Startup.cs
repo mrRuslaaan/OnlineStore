@@ -23,6 +23,7 @@ namespace OnlineStore
 
             services.AddTransient<IWorkers, IWorkerService>();
             services.AddTransient<IBlog, IBlogService>();
+            services.AddTransient<IProduct, IProductService>();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
