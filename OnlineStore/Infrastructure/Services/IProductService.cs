@@ -19,5 +19,18 @@ namespace OnlineStore.Infrastructure.Services
         {
             return TestData.Categories;
         }
+
+        public IEnumerable<Product> GetProducts(Filter filter = null)
+        {
+            var products = TestData.Products;
+
+            if (filter?.BrandId != null)
+                products = products.Where(p => p.BrandId == filter.BrandId);
+
+            if (filter?.CategoryId != null)
+                products = products.Where(p => p.CategoryId == filter.CategoryId);
+
+            return products;
+        }
     }
 }
