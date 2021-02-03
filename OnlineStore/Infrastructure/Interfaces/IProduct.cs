@@ -9,5 +9,6 @@ namespace OnlineStore.Infrastructure.Interfaces
 
         IEnumerable<Category> GetCategories();
 
+        IEnumerable<Product> GetProducts(Filter filter = null);
     }
 }
