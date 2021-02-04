@@ -17,13 +17,18 @@ namespace OnlineStore.Components
         {
             var brands = _Products.GetBrands();
 
+            var pr = _Products.GetProducts();
+
             var brandsEnum = brands.Select(brand => new BrandViewModel
             {
                 Id = brand.Id,
-                Name = brand.Name
-            });
+                Name = brand.Name,
+                AmoutOfProducts = pr
+                .Where(p => brand.Id == p.BrandId)
+                .Count(),
+            });           
 
-            return View(brandsEnum);
+            return View(brandsEnum.OrderByDescending(b => b.AmoutOfProducts));
         }
     }
 }

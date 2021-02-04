@@ -71,7 +71,7 @@ namespace OnlineStore.Data
        {
             new Product { Id = 1, Name = "Белое платье", Price = 1025, ImageUrl = "product1.jpg",CategoryId = 2, BrandId = 1 },
             new Product { Id = 2, Name = "Розовое платье", Price = 1025, ImageUrl = "product2.jpg",CategoryId = 2, BrandId = 1 },
-            new Product { Id = 3, Name = "Красное платье", Price = 1025, ImageUrl = "product3.jpg",CategoryId = 2, BrandId = 1 },
+            new Product { Id = 3, Name = "Красное платье", Price = 1025, ImageUrl = "product3.jpg",CategoryId = 2, BrandId = 7 },
             new Product { Id = 4, Name = "Джинсы", Price = 1025, ImageUrl = "product4.jpg",CategoryId = 2, BrandId = 1 },
             new Product { Id = 5, Name = "Лёгкая майка", Price = 1025, ImageUrl = "product5.jpg",CategoryId = 2, BrandId = 2 },
             new Product { Id = 6, Name = "Лёгкое голубое поло", Price = 1025, ImageUrl = "product6.jpg",CategoryId = 2, BrandId = 1 },
