@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineStore.Models.Worker>
+﻿@model IEnumerable<Worker>
 
 <body class="container">
     <table class="table">
@@ -9,23 +9,38 @@
                 <th>Отчество</th>
                 <th>Возраст</th>
                 <th></th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var w in Model)
             {
-            <tr>
-                <td>@w.Surname</td>
-                <td>@w.Name</td>
-                <td>@w.Patronymic</td>
-                <td>@w.Age</td>
-                <td>
-                    <a asp-action="AdditionalInfo" asp-route-id="@w.ID">
-                        <i class="fa fa-info-circle"></i>
-                    </a>
-                </td>
-            </tr>
+                <tr>
+                    <td>@w.Surname</td>
+                    <td>@w.Name</td>
+                    <td>@w.Patronymic</td>
+                    <td>@w.Age</td>
+                    <td>
+                        <a asp-action="AdditionalInfo" asp-route-id="@w.ID">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@w.ID">
+                            <i class="fa fa-pencil" fa></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@w.ID">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
+    <hr />
+    <a asp-action="Add" class="btn btn-primary">Новый сотрудник</a>
+    <br />
 </body>

@@ -14,36 +14,17 @@ namespace OnlineStore.Controllers
         {
             return View();
         }
-        /// <summary>
-        /// Блог магазина
-        /// </summary>
-        public IActionResult Blog()
-        {
-            return View();
-        }
-        /// <summary>
-        /// Блоги покупателй 
-        /// </summary>
-        public IActionResult Blogs()
-        {
-            return View();
-        }
+
+
 
         public IActionResult Cart()
         {
             return View();
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
+
 
         public IActionResult ContactUs()
-        {
-            return View();
-        }
-        public IActionResult Catalog()
         {
             return View();
         }

@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OnlineStore.Infrastructure.Interfaces;
+using OnlineStore.Infrastructure.Services;
 
 namespace OnlineStore
 {
@@ -15,7 +17,13 @@ namespace OnlineStore
      
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services
+                .AddControllersWithViews()
+                .AddRazorRuntimeCompilation();
+
+            services.AddTransient<IWorkers, IWorkerService>();
+            services.AddTransient<IBlog, IBlogService>();
+            services.AddTransient<IProduct, IProductService>();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -32,7 +40,7 @@ namespace OnlineStore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Catalog}/{action=Index}/{id?}");
             });
         }
     }
