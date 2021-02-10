@@ -12,6 +12,7 @@ using OnlineStore.Infrastructure.Interfaces;
 using OnlineStore.Infrastructure.Services;
 using OnlineStore.Data.Database.Context;
 using Microsoft.EntityFrameworkCore;
+using OnlineStore.Data.Database;
 
 namespace OnlineStore
 {
@@ -23,6 +24,7 @@ namespace OnlineStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<OnlineStoreDB>(opt => opt.UseSqlServer(_Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<OnlineStoreDBInitializer>();
 
             services
                 .AddControllersWithViews()
@@ -32,8 +34,10 @@ namespace OnlineStore
             services.AddTransient<IBlog, IBlogService>();
             services.AddTransient<IProduct, IProductService>();
         }
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, OnlineStoreDBInitializer db)
         {
+            db.Initialize();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
