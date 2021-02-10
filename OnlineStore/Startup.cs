@@ -9,10 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OnlineStore.Infrastructure.Interfaces;
-using OnlineStore.Infrastructure.Services;
+using OnlineStore.Infrastructure.Services.InDatabase;
 using OnlineStore.Data.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using OnlineStore.Data.Database;
+using OnlineStore.Infrastructure.Services.InMemory;
 
 namespace OnlineStore
 {
@@ -32,7 +33,7 @@ namespace OnlineStore
 
             services.AddTransient<IWorkers, IWorkerService>();
             services.AddTransient<IBlog, IBlogService>();
-            services.AddTransient<IProduct, IProductService>();
+            services.AddTransient<IProduct, IProductServicseDB>();
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, OnlineStoreDBInitializer db)
         {

@@ -6,7 +6,7 @@ using OnlineStore.Infrastructure.Interfaces;
 using OnlineStore.Models;
 using OnlineStore.Data;
 
-namespace OnlineStore.Infrastructure.Services
+namespace OnlineStore.Infrastructure.Services.InMemory
 {
     public class IWorkerService : IWorkers
     {

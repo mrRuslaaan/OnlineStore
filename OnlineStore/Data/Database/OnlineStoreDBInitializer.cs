@@ -24,7 +24,7 @@ namespace OnlineStore.Data.Database
                 db.Migrate();
                 Console.WriteLine("Миграции выполнены");
             }
-            else Console.WriteLine("БД в актуальном состоянии");
+            else Console.WriteLine("структура БД в актуальном состоянии");
 
             InitializeProducts();
         }

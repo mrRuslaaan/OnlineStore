@@ -23,10 +23,8 @@ namespace OnlineStore.Components
             {
                 Id = brand.Id,
                 Name = brand.Name,
-                AmoutOfProducts = pr
-                .Where(p => brand.Id == p.BrandId)
-                .Count(),
-            });           
+                AmoutOfProducts = brand.Products.Count()
+            }); ;           
 
             return View(brandsEnum.OrderByDescending(b => b.AmoutOfProducts));
         }
