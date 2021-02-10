@@ -10,6 +10,6 @@ namespace OnlineStore.Data.Database.Context
         public DbSet<Brand> Brands { get; set; }
 
         public DbSet<Category> Categories { get; set; }
-        OnlineStoreDB(DbContextOptions<OnlineStoreDB> options) : base(options) { }
+        public OnlineStoreDB(DbContextOptions<OnlineStoreDB> options) : base(options) { }
     }
 }

@@ -22,7 +22,7 @@ namespace OnlineStore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<OnlineStoreDB>(opt => opt.UseSqlServer(_Configuration.GetConnectionString("Default")));
+            services.AddDbContext<OnlineStoreDB>(opt => opt.UseSqlServer(_Configuration.GetConnectionString("DefaultConnection")));
 
             services
                 .AddControllersWithViews()
